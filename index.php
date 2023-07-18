@@ -5,8 +5,11 @@ function is_dead($url) {
         return "?";
     }
     $page = file_get_contents($url);
-    if (stripos($page, '<th scope="row" class="infobox-label">Died</th>') === false) {
-        return "";
+    $is_alive_en = stripos($page, '<th scope="row" class="infobox-label">Died</th>') === false;
+    $is_alive_es = stripos($page, '<th scope="row" style="text-align:left;font-size: 92%; width: 37%;;">Fallecimiento</th>') === false;
+    $is_alive = $is_alive_en and $is_alive_en;
+    if ($is_alive) {
+        return '';
     }
     return "☠";
 }
@@ -29,7 +32,7 @@ $people = array(
     "Little Richard" => "https://en.wikipedia.org/wiki/Little_Richard",
     "Josep Maria Vegara" => null,
     "Sabina" => "https://en.wikipedia.org/wiki/Joaqu%C3%ADn_Sabina",
-    "Vallespín" => null,
+    "Vallespín" => 'https://es.wikipedia.org/wiki/Fernando_Vallesp%C3%ADn',
 );
 
 echo '<table>';
