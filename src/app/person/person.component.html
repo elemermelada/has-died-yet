@@ -1,0 +1,8 @@
+<div *ngIf="loading === true">Loading...</div>
+<div *ngIf="loading === false && is_dead === null">I'm {{ name }}</div>
+<div *ngIf="loading === false && is_dead === true">
+  I'm {{ name }} and I am dead
+</div>
+<div *ngIf="loading === false && is_dead === false">
+  I'm {{ name }} and I am alive
+</div>
