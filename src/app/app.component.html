@@ -1,7 +1,15 @@
 <div class="people_container">
-  <span *ngFor="let name of people"
-    ><app-person name="{{ name }}"></app-person
-  ></span>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Is X dead yet?</mat-card-title>
+      <mat-card-subtitle>By Elemer San Miguel</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <span *ngFor="let name of people">
+        <app-person name="{{ name }}"></app-person>
+      </span>
+    </mat-card-content>
+  </mat-card>
 </div>
 
 <router-outlet></router-outlet>

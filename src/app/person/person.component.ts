@@ -5,13 +5,16 @@ import { lastValueFrom } from 'rxjs';
 @Component({
   selector: 'app-person',
   templateUrl: './person.component.html',
-  styleUrls: ['./person.component.css']
+  styleUrls: ['./person.component.css'],
 })
 export class PersonComponent implements OnInit {
   @Input()
   name: string = '';
+  panelOpenState: boolean = false;
   loading: boolean = true;
   is_dead: boolean = true;
+  status: string = '...';
+  icon: string | undefined;
 
   constructor(private http:HttpClient) {
   }
@@ -22,7 +25,25 @@ export class PersonComponent implements OnInit {
     lastValueFrom(response).then((is_dead) => {
       this.loading = false;
       this.is_dead = is_dead;
+      this.createStatus();
     })
+  }
+
+  public createStatus() {
+    switch (this.is_dead) {
+      case true:
+        this.status = "is dead";
+        this.icon = 'close';
+        break;
+      case false:
+        this.status = "is alive";
+        this.icon = 'check';
+        break;
+      case null:
+        this.status = "is unknown";
+        this.icon = 'question_mark';
+        break;
+    }
   }
 
   ngOnInit() {

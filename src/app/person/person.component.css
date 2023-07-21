@@ -1,0 +1,12 @@
+.person {
+    margin:2.5px;
+}
+.person_description {
+    display: grid;
+    grid-template-columns: auto auto ;
+}
+
+.mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+}
