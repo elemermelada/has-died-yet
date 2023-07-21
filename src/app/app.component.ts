@@ -12,6 +12,7 @@ export class AppComponent implements OnInit{
 
   loading: boolean = true;
   people: String[] = [];
+  padding: number = 20;
 
   constructor(private http:HttpClient) {
   }
@@ -26,6 +27,8 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit() {
+    const aspectRatio = window.innerWidth / window.innerHeight;
+    this.padding = Math.max((aspectRatio - 9/16) / (16/9 - 9/16) * 15 + 5, 5)
     this.getPeople();
   }
 
