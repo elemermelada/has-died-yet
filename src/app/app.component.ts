@@ -11,7 +11,7 @@ import { env } from './envs/env'
 export class AppComponent implements OnInit{
 
   loading: boolean = true;
-  people: String[] = [];
+  people: any[] = [];
   padding: number = 20;
 
   constructor(private http:HttpClient) {
@@ -19,10 +19,10 @@ export class AppComponent implements OnInit{
 
   public getPeople() {
     this.loading = true;
-    const response = this.http.get<String[]>(env.back_root + 'api/people/');
+    const response = this.http.get<any>(env.back_root + 'api/people/');
     lastValueFrom(response).then((people) => {
       this.loading = false;
-      this.people = people;
+      this.people = Object.keys(people).map((key) => {return {name: key, url: people[key]}});
     })
   }
 

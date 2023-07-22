@@ -15,11 +15,13 @@ interface isDead {
 export class PersonComponent implements OnInit {
   @Input()
   name: string = '';
+  @Input()
+  url: string = '';
 
   panelOpenState: boolean = false;
   
   is_dead: boolean|undefined|null;
-  date: string|undefined|null;
+  date: string = '???';
   
   loading: boolean = true;
   status: string = '...';
@@ -36,10 +38,10 @@ export class PersonComponent implements OnInit {
       this.is_dead = response.is_dead;
       this.date = response.date
       if (response.date === null) {
-        this.date = "Not yet!";
+        this.date = 'Not yet!';
       }
       if (response.is_dead === null) {
-        this.date = "???";
+        this.date = '???';
       }
       this.createStatus();
     })
@@ -48,15 +50,15 @@ export class PersonComponent implements OnInit {
   public createStatus() {
     switch (this.is_dead) {
       case true:
-        this.status = "is dead";
+        this.status = 'is dead';
         this.icon = 'close';
         break;
       case false:
-        this.status = "is alive";
+        this.status = 'is alive';
         this.icon = 'check';
         break;
       case null:
-        this.status = "is unknown";
+        this.status = 'is unknown';
         this.icon = 'question_mark';
         break;
     }
