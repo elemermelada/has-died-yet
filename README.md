@@ -1,8 +1,8 @@
-# Has X died yet?
+# Is X dead yet?
 > By Elemer San Miguel
 
 ### Description
-Ever wondered if *that* famous person with a wiki page is still alive? Wanna keep track of multiple celebrities and their breathing status? Now, with `Has X died yet?` it's easier than ever!!
+Ever wondered if *that* famous person with a wiki page is still alive? Wanna keep track of multiple celebrities and their breathing status? Now, with `Is X dead yet?` it's easier than ever!!
 
 ### Features
  - Customizable list of celebrities ([people.json](api/people.json))
